@@ -1,0 +1,58 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+<style>
+    .container
+    {
+    border:solid 1px;
+    width:350px;
+    margin-top:40px;
+    margin-bottom:50px;
+    background-color:lightgrey;
+    border:none;
+    border-radius:1rem;
+    padding:5px;
+    }
+
+    h2{
+    text-align:center;
+    }
+    p a
+    {
+    margin-left:10px;
+        text-decoration:none;
+    }
+        .btn
+        {
+        }
+
+</style>
+
+
+<div class="container  shadow">
+<h2> Admin Home</h2>
+    <center>
+        {% if photo=='no' or photo==null %}
+            <p><a href="Admin_photo"class="btn btn-block btn-warning ">Upload Photo</a> </p>
+        {% else %}
+            <img src="../static/photos/{{ photo }}" width="150" height="150" style="border-radius: 50%; margin-top:15px;" />
+            <br/>
+            <a href="Change_Admin_Photo" class="btn btn-block btn-info mt-1">Change Photo</a>
+        {% endif %}
+   </center>
+        {% if data %}
+        {% for d in data %}
+        <p>Name: {{d[0 ]}}</p>
+        <p>Contact:  {{d[1]}}</p>
+        <p>Address: {{d[2]}}</p>
+        <p>Email : {{d[3]}}</p>
+        {% endfor %}
+        {% endif %}
+        <div class="d-flex">
+                <p><a href="Edit_Admin_profile" class="btn btn-block btn-warning">Change Profile</a> </p>
+                <p><a href="Change_admin_password" class="btn btn-block btn-success">Change Password</a> </p>
+        </div>
+</div>
+
+
+
+{% endblock %}

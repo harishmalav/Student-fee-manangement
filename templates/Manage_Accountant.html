@@ -1,0 +1,67 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+
+<style>
+    h1
+    {
+    margin-top:30px;
+    text-align:center;
+    font-family:arya;
+
+    }
+    .table
+    { margin-top:30px;
+    width:700px;
+    }
+    .table tr th
+    {
+    font-family:arial;
+    }
+
+</style>
+
+
+
+
+<body>
+<h1>Manage Accountant</h1>
+<center>
+<table  class="table table-bordered">
+    <tr class="table-primary">
+            {% if data %}
+
+                <th>Em_id</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Manage</th>
+    </tr>
+    <tr>
+        {% for d in data %}
+                <td>{{d[0]}}</td>
+                <td>{{d[1]}}</td>
+                <td>{{d[2]}}</td>
+                <td>{{d[3]}}</td>
+                <td>{{d[4]}}</td>
+                <td>{{d[5]}}</td>
+                <td class="d-flex">
+
+                    <form action="Edit_Accountant" method="post">
+                        <input type="text" name="T1" value="{{d[5]}}" hidden>
+                        <button   type="submit" class="btn btn-block btn-success">Edit</button>
+                    </form>
+
+                        <form class="ms-3" action="Delete_accountant" method="post">
+                            <input type="text" name="T2" value="{{d[5]}}" hidden>
+                            <button type="submit" class="btn btn-block btn-danger">Delete</button>
+                        </form>
+                </td>
+    </tr>
+    {% endfor %}
+{% endif %}
+</table>
+    </center>
+</body>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "index.html" %}
+{% block m1 %}
+
+<style>
+
+    button
+    {
+    margin-top:30px;
+
+    }
+
+
+</style>
+
+
+<body>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 h-75" src="../static/images/4.jpg" alt="First slide">
+    </div>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+    <div class="row  gap-5 justify-content-center">
+        <div class="container col-md-3 border rounded p-3 bg-secondary">
+            <h2 class="text-center fs-3 fw-bold">Enquire Now</h2>
+            <div class="name mt-3">
+
+                <input type="text" class="form-control mt-4"  placeholder="Enter Name " >
+            </div>
+            <div class="email mt-3">
+
+                <input type="text" class="form-control mt-4" placeholder="Enter Email">
+            </div>
+            <div class="mess mt-3">
+
+                <textarea class="form-control h-25 mt-4" placeholder="Send Message"></textarea>
+            </div>
+            <button class="btn btn-block btn-success">Send Message</button>
+        </div>
+        <div class=" container col-md-3 p-3 border bg-light ">
+            <h4 class="text-center fw-bold"> For more information contact us</h4>
+            <p class="fw-bold mt-5 fs-5">📞 +919875089423</p>
+            <p class="fw-bold mt-2 fs-6 mb-5">✉️ harishmalav2005@gmail.com</p>
+            <hr/>
+            <p>
+                <img src="../static/images/insta.jpeg" width="75" style="vertical-align: middle;">
+                <span style="font-family: sans-serif; font-weight: bold; margin-left: 8px;"></span>
+
+                    <img src="../static/images/facebook.png" alt="Facebook Login" width="50" style="vertical-align: middle;">
+                    <span style="font-family: sans-serif; font-weight: bold; margin-left: 8px;"></span>
+
+                <img src="../static/images/youtube.png" alt="YouTube Logo" width="75"  style="vertical-align: middle;">
+                <span style="font-family: sans-serif; font-weight: bold; margin-left: 8px;"></span>
+
+            </p>
+        </div>
+
+        <div class="col-md-3 p-3 border bg-light">
+                    <img class="d-block w-100 h-75 mt-5" src="../static/images/7.jpg">
+        </div>
+    </div>
+</div>
+</body>
+  {% endblock %}

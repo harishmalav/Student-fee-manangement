@@ -1,0 +1,57 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1
+        {
+        margin-top:20px;
+        font-size:30px;
+        text-align:center;
+        font-family:aiar;
+        }
+    </style>
+</head>
+<body>
+<h1>Delete Transaction</h1>
+<div class="container justify-content-center d-flex">
+    <div class="row rounded w-50 p-4">
+        <form action="Delete_transaction1" method="post">
+            {% if data %}
+            {% for d in data %}
+                <div class="mb-3">
+                    <label for="t_no">T_no</label>
+                    <input type="text" class="form-control" name="T1" value="{{d[0]}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="st_no">St_No</label>
+                    <input type="text" class="form-control" name="T2" value="{{d[1]}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="cou_id">Course_Id</label>
+                    <input type="text" class="form-control" name="T3" value="{{d[2]}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="amount">Amount</label>
+                    <input type="text" class="form-control" name="T4" value="{{d[3]}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="deposit_date">Deposit_Date</label>
+                    <input type="text" class="form-control" name="T5" value="{{d[4]}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="remark">Remark</label>
+                    <input type="text" class="form-control" name="T6" value="{{d[5]}}"readonly>
+                </div>
+                <button type="submit" class="btn btn-block btn-danger">delete</button>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </div>
+</div>
+ {{msg}}
+</body>
+</html>
+{% endblock %}

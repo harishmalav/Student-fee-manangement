@@ -1,0 +1,53 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1
+        {
+        margin-top:20px;
+        font-size:30px;
+        text-align:center;
+        font-family:aiar;
+        }
+        }
+
+    </style>
+</head>
+<body>
+<h1>Edit Course</h1>
+<div class="container justify-content-center d-flex">
+    <div class="row rounded w-50">
+        <form action="Edit_course1" method="post">
+            {% if data %}
+                <div class="mb-3">
+                    <label for="cou_id">Course_id</label>
+                    <input type="text" class="form-control" name="T1" value="{{data[0]}}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="cou_name">Course_Name</label>
+                    <input type="text" class="form-control" name="T2" value="{{data[1]}}">
+                </div>
+                <div class="mb-3">
+                    <label for="fee">Fee</label>
+                    <input type="text" name="T3" class="form-control"  value="{{data[2]}}">
+                </div>
+                <div class="mb-3">
+                    <label for="start_date">Start_Date</label>
+                    <input type="text" class="form-control" name="T4"  value="{{data[3]}}">
+                </div>
+                <div class="mb-3">
+                    <label for="sr_no">Sr_No</label>
+                    <input type="text" class="form-control" name="T5"  value="{{data[4]}}" readonly>
+                </div>
+                <button type="submit" class="btn btn-block btn-success"> Edit</button>
+            {% endif %}
+        </form>
+    </div>
+</div>
+</body>
+{{ msg }}
+</html>
+{% endblock %}

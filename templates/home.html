@@ -1,0 +1,111 @@
+{% extends "index.html" %}
+{% block m1 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .nm1
+    {
+        background-color:yellow;
+        transition:all 0.2s ease-in;
+    }
+    .nm1:hover
+    {
+       background-color: pink;
+    }
+    .nm2
+    {
+         background-color:skyblue;
+
+    }
+    .nm2:hover
+    {
+       background-color:orange;
+        transition:all 0.2s ease-in;
+    }
+    .nm3
+    {
+          background-color:lightgreen;
+
+    }
+    .nm3:hover
+    {
+       background-color:teal;
+        transition:all 0.2s ease-in;
+    }
+
+  </style>
+</head>
+<body>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 h-75" src="../static/images/1.jpg" alt="First slide">
+    </div>
+</div>
+  <h1 class="text-center mt-5 fw-bold text-danger">Benefits Of Our School & College ERP Software</h1>
+  <p class="fs-6 text-center text-dark fw-bold">With its intuitive interface and robust features, you can effortlessly manage multiple schools, ensuring smooth operations and enhanced productivity.
+
+</p>
+
+
+  <div class="container  mb-5 mt-5">
+    <div class="row gap-5 justify-content-center">
+      <div class="col-md-3 nm1 border rounded  p-2">
+            <h6 class="text-center fw-bold fs-5">Enhanced Insights & Reporting</h6>
+            <p class="text-center">Access detailed analytics and generate comprehensive
+            reports to identify areas of improvement and optimize
+            academic performance. Navigate seamlessly through our visually
+            appealing dashboard, ensuring an intuitive user experience
+              for administrators, teachers, and parents.</p>
+      </div>
+      <div class="col-md-3 border nm2 rounded  p-2">
+        <h6 class="text-center  fw-bold fs-5">High End Application Security</h6>
+          <p class="text-center">Ability to ensure the security of data
+          through encryption, access controls and backup.
+          The protection of ERP data is our top priority</p>
+      </div>
+      <div class="col-md-3 border nm3 rounded  p-2">
+        <h6 class="text-center  fw-bold fs-5">Streamlined Administrative Task ty</h6>
+             <p class="text-center"> Simplify key administrative tasks and
+              facilitate efficient communication between
+              all stakeholders, fostering a more connected community.
+              Reduce paperwork and manual data entry, allowing staff to focus on core educational responsibilities
+             </p>
+
+      </div>
+    </div>
+  </div>
+<div class="container shadow">
+ <h3 class="fw-bold"> Fee Management System </h3>
+<p>Fee management is the most required features in coaching institute management software.
+    It is important to have effective, automatic & time saving fee management system in coaching
+    institute which make accounting very easily.</p>
+
+    <p>Smart Classes software's fee management system is very effective which help coaching institute to
+    setup students fees, discount, fee collection by manual or in installment, fee refund process &
+    at a same time it also send auto fee reminder and notification to students or parents. This fee
+    management system saves lot of time of coaching instututes. In one click users can get all required
+        reports which help them to track and monitor their fee collection system effectively.</p>
+</div>
+    <div class="container mb-5 " style="margin-top:100px;">
+        <div class="row gap-5 shadow p-3">
+            <div class="col-md-5">
+                <img src="../static/images/admin.png" class="w-100 shadow ">
+            </div>
+            <div class="col-md-5">
+                <h4>Fee Management System's Features</h4>
+                    Create Course Wise Fee Structures<br/>
+                    Discount Management<br/>
+                    Student's Fees Collection<br/>
+                    Collect Fees Randomly Or Installment Wise<br/>
+                    Fees Collection With Tax Or Without Tax<br/>
+                    Fees Receipt Generation<br/>
+                    Fees Refund Process<br/>
+                    Auto Fees Due Reminder<br/>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

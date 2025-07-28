@@ -1,0 +1,49 @@
+{% extends "accountant_index.html" %}
+{% block m3 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Edit Accountant Profile</h1>
+<div class="container justify-content-center d-flex">
+    <div class="row w-50 p-5">
+        <form action="Edit_accountant3" method="post">
+            {% if data %}
+            {% for d in data %}
+                <div class="mb-3">
+                    <label for="em_id">Em_Id</label>
+                    <input type="text" class="form-control" name="T1" value="{{d[0]}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="T2" value="{{d[1]}} "required>
+                </div>
+                <div class="mb-3">
+                    <label for="contant">Contact</label>
+                    <input type="text" class="form-control" name="T3" value="{{d[2]}} "required>
+                </div>
+                <div class="mb-3">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" name="T4" value="{{d[3]}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="gender">Gender</label>
+                    <input type="text" class="form-control" name="T5" value="{{d[4]}}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="T6" value="{{d[5]}}" readonly>
+                </div>
+                <button type="submit" class="btn btn-block btn-success">Edit</button>
+            {% endfor %}
+            {% endif %}
+        </form>
+           {{msg}}
+    </div>
+</div>
+</body>
+</html>
+
+{% endblock %}

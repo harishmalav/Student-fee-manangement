@@ -1,0 +1,361 @@
+{% if j=="j" %}
+    {% extends "accountant_index.html" %}
+    {% block m3 %}
+        <div  class="container">
+            <h1>Student Information</h1>
+                <div class="container d-flex bg-light shadow w-100 " >
+                    {% if data %}
+                    {% for d in data %}
+                    <div class="container mt-5 d-flex  gap-3">
+                        <div class="container w-100">
+                            <p>Sr_no : {{d[0]}}</p>
+                            <p>Name : {{d[1]}}</p>
+                            <p>Father Name :{{d[2]}}</p>
+                            <p>Mother Name :{{d[3]}}</p>
+                                <form action="Edit_student" method="post">
+                                    <input type="text" name="T1" value="{{d[0]}}" hidden >
+                                    <button type="submit" class="btn btn-block btn-success mb-3">Edit</button>
+                                </form>
+                        </div>
+                        <div class="container w-100">
+                            <p>Address : {{d[4]}} </p>
+                            <p>Contact : {{d[5]}}</p>
+                            <p>State :{{d[6]}}</p>
+                            <p>Email : {{d[7]}}</p>
+                        </div>
+                   </div>
+
+                        <style>
+                        img
+                        {
+                            border:2px solid grey;
+                            padding:2px;
+                        }
+                    </style>
+                    <div class="container mt-3 me-9 " style="margin-left:200px;">
+                        {% if photo!="no" %}
+                        <p><img src="../static/photos/{{ photo }}" width="200" height="200" />
+                            <form action="Change_student_Photo" method="post">
+                                <input type="hidden" value="{{d[0]}}" name="T5">
+                                <input type="submit" value="change photo"  class="btn btn-block btn-success mb-4" style="width:210px;" >
+                            </form>
+                        {% else %}
+                            <form action="photo_upload_student" method="post">
+                                <input type="hidden" value="{{d[0]}}" name="T5">
+                                <input type="submit" value="Upload photo" class="btn btn-success mt-5">
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+                <form action="Add_course" method="post">
+                    <input type="text" name="T5" value="{{d[0]}}" hidden>
+                    <button type="submit" class="btn btn-block btn-success mt-4 mb-4">Add course</button>
+                </form>
+                {% endfor %}
+                {% endif %}
+
+
+                {% if data1 %}
+                All courses
+                    <table class="table table-bordered w-100">
+                        <tr class="table-primary">
+                            <th>course_id</th>
+                            <th>course_name</th>
+                            <th>Fee</th>
+                            <th>start_date</th>
+                            <th>Paid</th>
+                            <th>Due</th>
+                            <th>manage</th>
+                        </tr>
+                        <tr>
+                        {% for d in data1 %}
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                            <td>{{d[5]}}</td>
+                            <td>{{d[6]}}</td>
+                            <td>
+                                <div class="d-flex gap-4">
+                                    <form action="fee_deposit" method="post">
+                                        <input type="text" name="T2" value="{{d[0]}}" hidden >
+                                        <button type="submit" class="btn btn-block btn-success">₹</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+
+                {% if data4 %}
+                FEE Transaction
+                    <table class="table table-bordered w-100">
+                        <tr class="table-primary">
+                            <th>t_no</th>
+                            <th>st_id</th>
+                            <th>course_id</th>
+                            <th>amount</th>
+                            <th>deposit_date</th>
+                            <th>remark</th>
+                        </tr>
+                        <tr>
+                        {% for d in data4 %}
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                            <td>{{d[4]}}</td>
+                            <td>{{d[5]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+        </div>
+    {% endblock %}
+
+    {% elif j=="k" %}
+    {% extends "admin_index.html" %}
+    {% block m2 %}
+        <div  class="container">
+            <h1 class="mt-5">Student Information</h1>
+                <div class="container mt-3 d-flex bg-light shadow w-100 " >
+
+                    {% if data %}
+                    {% for d in data %}
+                    <div class="container mt-5 d-flex  gap-3">
+                        <div class="container w-100">
+                        <p>Sr_no : {{d[0]}}</p>
+                        <p>Name : {{d[1]}}</p>
+                        <p>Father Name:{{d[2]}}</p>
+                        <p>Mother Name : {{d[3]}}</p>
+                            <div class="d-flex">
+                            <form action="Edit_student2" method="post">
+                                <input type="text" name="T1" value="{{d[0]}}" hidden>
+                                <button type="submit" class="btn btn-block btn-success">Edit</button>
+                            </form>
+                            <form class="ms-3" action="Delete_Student" method="post">
+                                <input type="text" name="T1" value="{{d[0]}}" hidden>
+                                <button type="submit" class="btn btn-block btn-danger mb-4">Delete</button>
+                            </form>
+                         </div>
+                        </div>
+                        <div class="container">
+                        <p>Address : {{d[4]}} </p>
+                        <p>Contact : {{d[6]}}</p>
+                        <p>Date of Birth: {{d[7]}}</p>
+                        <p>Email : {{d[10]}}</p>
+                    </div>
+
+                        </div>
+                    <style>
+                        img{
+
+                        border:2px solid grey;
+                        padding:2px;
+                        }
+                    </style>
+                    <div class="container mt-3  me-9">
+                    {% if photo!="no" %}
+                        <img src="../static/photos/{{photo}}"  width="230" height="200"  />
+                        <form action="Change_student_Photo" method="post">
+                            <input type="hidden" value="{{d[0]}}" name="T5">
+                            <input type="submit"  value="change photo" class="btn btn-block btn-success  mb-4" style="width:230px;">
+                        </form>
+                    {% else %}
+                        <form action="photo_upload_student" method="post">
+                            <input type="hidden" value="{{d[0]}}" name="T5">
+                            <input type="submit" value="Upload photo" class="mt-5 ms-5" >
+                        </form>
+                    {% endif %}
+                        </div>
+
+
+                </div>
+                    <form action="Add_course" method="post">
+                        <input type="text" name="T3" value="{{d[0]}}" hidden>
+                        <button type="submit" class="btn btn-block btn-success mr-3 mt-4 mb-4">Add course +</button>
+                    </form>
+
+                {% endfor %}
+                {% endif %}
+
+                {% if data1 %}
+                <h2>All Course</h2>
+                <table class="table table-bordered w-100">
+                    <tr class="table-primary">
+
+                        <th>course_id</th>
+                        <th>course_name</th>
+                        <th>Fee</th>
+                        <th>start_date</th>
+                        <th>Paid</th>
+                        <th>Due</th>
+                        <th>manage</th>
+                    </tr>
+                    <tr>
+                        {% for d in data1 %}
+                        <td>{{d[0]}}</td>
+                        <td>{{d[1]}}</td>
+                        <td>{{d[2]}}</td>
+                        <td>{{d[3]}}</td>
+                        <td>{{d[5]}}</td>
+                        <td>{{d[6]}}</td>
+                        <td>
+                            <div class="d-flex gap-4">
+                                <form action="fee_deposit" method="post">
+                                    <input type="text" name="T2" value="{{d[0]}}" hidden >
+                                    <button type="submit" class="btn tn-sm btn-info">₹</button>
+                                </form>
+
+                                <form action="Edit_course" method="post">
+                                    <input type="text" name="T2" value="{{d[0]}}" hidden>
+                                    <button type="submit"  class="btn btn-block btn-success" >Edit</button>
+                                </form>
+
+                                <form action="Delete_course" method="post">
+                                    <input type="text" name="T2" value="{{d[0]}}" hidden>
+                                    <button type="submit" class="btn btn-block btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                {% endif %}
+
+            <div class="container">
+                    <p>Total Fee : {{fee}}</p>
+                    <p>Total Deposit : {{deposit}}</p>
+                    <p>Total Due : {{due}}</p>
+                </div>
+                {% if data4 %}
+                <h2>Instalments</h2>
+                    <table class="table table-bordered w-100">
+                        <tr class="table-primary">
+                            <th>t_no</th>
+                            <th>st_id</th>
+                            <th>course_id</th>
+                            <th>amount</th>
+                            <th>deposit_date</th>
+                            <th>remark</th>
+                            <th>Manage</th>
+                        </tr>
+                        <tr>
+                        {% for d in data4 %}
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                            <td>{{d[4]}}</td>
+                            <td>{{d[5]}}</td>
+                            <td>
+                                <div class="d-flex gap-3">
+                                    <form action="Edit_transaction" method="post">
+                                        <input type="text" name="T1" value="{{d[0]}}" hidden>
+                                        <button type="submitt" class="btn btn-block btn-success">Edit</button>
+                                    </form>
+
+                                    <form action="Delete_transaction" method="post">
+                                        <input type="text" name="T1" value="{{d[0]}}" hidden>
+                                        <button type="submit" class="btn btn-block btn-danger">Delete</button>
+
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                     </table>
+                {% endif %}
+        </div>
+    {{ msg }}
+    {% endblock %}
+{% elif j=="u" %}
+    {% extends "student_index.html" %}
+    {% block m4 %}
+        <div  class="container">
+            <h1>Student Information</h1>
+                <div class="container d-flex bg-light shadow w-100  mb-4" >
+                    <div class="container ">
+                    {% if data %}
+                    {% for d in data %}
+                            <p>Sr_no : {{d[0]}}</p>
+                            <p>Name : {{d[1]}}</p>
+                            <p>Address : {{d[2]}} </p>
+                            <p>Contact : {{d[3]}}</p>
+                            <p>Email : {{d[4]}}</p>
+
+                    </div>
+                    <style>
+                        img
+                        {
+                            border:2px solid grey;
+                            padding:2px;
+                        }
+                    </style>
+                    <div class="container mt-3">
+                        <img src="../static/photos/{{photo}}"  width="200" height="150"  />
+                    </div>
+
+
+                </div>
+
+                {% endfor %}
+                {% endif %}
+
+
+                {% if data1 %}
+                All courses
+                    <table class="table table-bordered mt-4 w-100">
+                        <tr class="table-primary">
+                            <th>course_id</th>
+                            <th>course_name</th>
+                            <th>Fee</th>
+                            <th>start_date</th>
+                            <th>Paid</th>
+                            <th>Due</th>
+                        </tr>
+                        <tr>
+                        {% for d in data1 %}
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                            <td>{{d[5]}}</td>
+                            <td>{{d[6]}}</td>
+
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+
+                {% if data4 %}
+                FEE Transaction
+                    <table class="table table-bordered w-100">
+                        <tr class="table-primary">
+                            <th>t_no</th>
+                            <th>st_id</th>
+                            <th>course_id</th>
+                            <th>amount</th>
+                            <th>deposit_date</th>
+                            <th>remark</th>
+                        </tr>
+                        <tr>
+                        {% for d in data4 %}
+                            <td>{{d[0]}}</td>
+                            <td>{{d[1]}}</td>
+                            <td>{{d[2]}}</td>
+                            <td>{{d[3]}}</td>
+                            <td>{{d[4]}}</td>
+                            <td>{{d[5]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
+        </div>
+    {% endblock %}
+
+
+{% endif %}

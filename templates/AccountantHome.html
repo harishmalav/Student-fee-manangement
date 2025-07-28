@@ -1,0 +1,54 @@
+{% extends "Accountant_index.html" %}
+{% block m3 %}
+<style>
+body
+{background-color:white;
+}
+    h1
+    {
+    font-size:30px;
+    font-family:aria;
+    text-align:center;
+    }
+    .container
+    {
+    margin-top:60px;
+    border:solid 1px black;
+    border-radius:10px;
+    font-family:arial bold;
+    margin-bottom:60px;
+    }
+</style>
+
+
+
+<div class="container bg-light w-25 shadow">
+<h1>Accountant home</h1>
+    <center>
+{% if photo=='no'or photo==null %}
+    <p><a href="Accountant_photo" class="btn btn-block btn-warning ">Upload Photo</a> </p>
+{% else %}
+    <img src="../static/photos/{{ photo }}" width="120" height="120" style="border-radius:50%;margin-top:20px;"/>
+    <br/>
+    <p><a href="Change_Accountant_Photo" class="btn btn-block btn-info mt-2">Change Photo</a> </p>
+{% endif %}
+        </center>
+
+
+{% if data %}
+    {% for d in data %}
+        <p>Em_Id : {{d[0]}}</p>
+        <p>Name : {{d[1]}}</p>
+        <p>Contact: {{d[2]}} </p>
+        <p>Address : {{d[3]}}</p>
+        <P>Gender : {{d[4]}}</P>
+        <p>Email : {{d[5]}}</p>
+    <form action="Edit_accountant2" method="post">
+    <input type="text" name="T1" value="{{d[5]}}"  hidden>
+    <button type="submit" class="btn btn-block btn-success mb-1">Edit</button>
+    </form>
+    {% endfor %}
+{% endif %}
+</div>
+
+{% endblock %}

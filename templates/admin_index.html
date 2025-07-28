@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="../static/style/botstrap4.css">
+  <script src="../static/style/jquery.js"></script>
+  <link rel="stylesheet" href="../static/style/botstrap4.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Admin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="Admin_home">Profile</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="B3"  href="#" >Admin</a>
+          <div class="dropdown-menu" id="B4">
+            <a class="dropdown-item" href="admin_reg">Add</a>
+            <a class="dropdown-item" href="Admin_show">Show</a>
+          </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="B1"  href="#" >Accountant</a>
+          <div class="dropdown-menu" id="B2">
+            <a class="dropdown-item" href="Accountant_Reg">Add Accountant</a>
+            <a class="dropdown-item" href="ManageAccountant">Show Accountant</a>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="Show_Student">showStudent</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout">logout</a>
+        </li>
+
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" fdprocessedid="88erd">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+{% block m2 %}
+{% endblock %}
+</body>
+<script>
+  $(document).ready(function(){
+      $("#B1").click(function(){
+          $("#B2").slideToggle();
+      })
+      $("#B3").click(function(){
+          $("#B4").slideToggle();
+      })
+  })
+</script>
+</html>

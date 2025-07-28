@@ -1,0 +1,61 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1
+        {
+        margin-top:40px;
+        text-align:center;
+        font-size:30px;
+        }
+    </style>
+</head>
+<body>
+<h1>Delete Accountant</h1>
+<a href="ManageAccountant" style="margin-left:410px;"> <i class="bi bi-arrow-left-circle fs-4"></i></a>
+<div class="container justify-content-center d-flex">
+    <div class="row rounded w-50 p-5">
+        <div class="col">
+            <form action="Delete_Accountant1" method="post">
+                {% if data %}
+                {% for d in data %}
+                    <div class="mb-3">
+                        <label for="em_id">Employees Id</label>
+                        <input type="text" class="form-control" name="T1" value="{{d[0]}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="T2" value="{{d[1]}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact">contact</label>
+                        <input type="text" class="form-control" name="T3" value="{{d[2]}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="addre">Address</label>
+                        <input type="text" class="form-control" name="T4" value="{{d[3]}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender">Gender</label>
+                        <input type="text" class="form-control" name="T5" value="{{d[4]}}" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="T6" value="{{d[5]}}" readonly>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-danger fs-5">Delete</button>
+                {% endfor %}
+                {% endif %}
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+{{msg}}
+</html>
+
+{% endblock %}

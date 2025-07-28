@@ -1,0 +1,70 @@
+{% extends "Accountant_index.html" %}
+{% block m3 %}
+
+
+<style>
+    .table
+    {
+    margin-top:40px;
+    width:800px;
+
+    }
+    h1
+    {
+    margin-top:30px;
+    font-size:30px;
+    text-align:center;
+    }
+</style>
+
+
+<h1>Manage student</h1>
+<center>
+<table class="table table-bordered">
+    <tr class="table-primary">
+    {% if data %}
+        <th>Sr_no</th>
+        <th>Name</th>
+        <th>Father Name</th>
+        <th>Mother Name</th>
+        <th>Address</th>
+        <th>gender</th>
+        <th>Contact</th>
+        <th>Date of birth</th>
+        <th>Category</th>
+        <th>State</th>
+        <th>Email</th>
+        <th>Manage</th>
+    </tr>
+
+    <tr>
+        {% for d in data %}
+            <td>{{d[0]}}</td>
+            <td>{{d[1]}}</td>
+            <td>{{d[2]}}</td>
+            <td>{{d[3]}}</td>
+            <td>{{d[4]}}</td>
+            <td>{{d[5]}}</td>
+            <td>{{d[6]}}</td>
+            <td>{{d[7]}}</td>
+            <td>{{d[8]}}</td>
+            <td>{{d[9]}}</td>
+            <td>{{d[10]}}</td>
+            <td>
+                <form action="Student_dashboard" method="post">
+                <input type="text" name="T1" value="{{d[0]}}" hidden>
+                <button type="submit" class="btn btn-block btn-success">Click</button>
+</form>
+            </td>
+    </tr>
+         {% endfor %}
+{% endif %}
+
+</table>
+    </center>
+
+
+{{ msg }}
+{% endblock %}
+
+</html>

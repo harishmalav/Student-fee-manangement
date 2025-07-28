@@ -1,0 +1,79 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+<style>
+    .container
+    {
+    width:500px;
+    border-radius:15px;
+    font-family:aria;
+    font-size:18px;
+    }
+    h1
+    {
+    text-align:center;
+    margin-top:30px;
+    font-family:suuaa;
+    }
+    .for-label
+    {
+    margin-top:15px;
+    }
+    button
+    {
+    border:none;
+    padding:10px;
+    background-color:lightblue;
+    width:100px;
+    margin-bottom:50px;
+    border-radius:10px;
+    }
+
+
+</style>
+
+
+
+
+<body>
+<div >
+<h1>Admin Registration</h1>
+    <div class="container mt-4">
+
+<form action="admin_reg" method="post">
+    <div class="name mt-2" >
+        <label class="for-label" for="name" >Name</label>
+        <input type="text" class="form-control" name="T1" required>
+    </div>
+    <div class="contant mt-2">
+        <label class="for-label" for="contant" >Contant</label>
+        <input type="text" class="form-control" name="T2" required>
+    </div>
+    <div class="addreess mt-2">
+        <label class="for-label" for="address">Address</label>
+        <input type="text" class="form-control" name="T3" required>
+    </div>
+    <div class="email mt-2">
+        <label class="for-label" for="email">Email</label>
+        <input type="text" class="form-control" name="T4" required>
+    </div>
+    <div class="pass mt-2">
+        <label class="for-label" for="pass">Password</label>
+        <input type="text" class="form-control" name="T5" required>
+    </div>
+    <div class="confirm mt-2 mb-3">
+        <label class="for-label" for="confirm">Confirm Password</label>
+        <input type="text" class="form-control" name="T6" required>
+    </div>
+<button type="submit">submit</button>
+</form>
+</div>
+{% if msg %}
+    <h3>{{msg}}</h3>
+
+{% endif %}
+</div>
+
+</body>
+{{ msg }}
+{% endblock %}
+</html>

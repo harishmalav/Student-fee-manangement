@@ -1,0 +1,48 @@
+{% extends "admin_index.html" %}
+{% block m2 %}
+<style>
+    .table
+    {
+    width:650px;
+    margin-top:30px;
+
+    }
+    h1
+    {
+    text-align:center;
+    margin-top:40px;
+
+    }
+
+</style>
+
+
+<body>
+<h1> All Admin</h1>
+<center>
+<table class="table table-bordered shadow">
+    <tr class="table-primary">
+        {% if data %}
+        <th>Name</th>
+        <th>Contact</th>
+        <th>Address</th>
+        <th>Email</th>
+
+    </tr>
+    <tr>
+        {% for d in data %}
+        <td>{{d[0]}}</td>
+        <td>{{d[1]}}</td>
+        <td>{{d[2]}}</td>
+        <td>{{d[3]}}</td>
+    </tr>
+
+
+ {% endfor %}
+{% endif %}
+</table>
+    </center>
+</body>
+{{ msg }}
+{% endblock %}
+</html>
