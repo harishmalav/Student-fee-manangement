@@ -10,7 +10,7 @@ from mylib import *
 
 app=Flask(__name__)
 app.secret_key = "super secret key"
-app.config['UPLOAD_FOLDER']='./static/photos'
+
 
 @app.route('/')
 def index():
